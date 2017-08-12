@@ -1,0 +1,22 @@
+platform :ios, '10.0'
+
+target 'Indoorway Test' do
+
+  use_frameworks!
+
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RealmSwift'
+  pod 'RxRealm'
+  pod 'RxDataSources'
+  pod 'Action'
+  pod 'NSObject+Rx'
+  pod 'Alamofire'
+  pod 'RxAlamofire'
+  
+  target 'Indoorway TestTests' do
+    inherit! :search_paths
+    
+  end
+
+end
