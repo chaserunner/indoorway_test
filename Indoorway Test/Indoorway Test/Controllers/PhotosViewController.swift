@@ -28,12 +28,7 @@ class PhotosViewController: UIViewController, BindableType {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDataSource()
-        let animation = LOTAnimationView.init(name: "empty_status")
-        animation.autoresizingMask = [.flexibleWidth,.flexibleHeight]
-        animation.frame = animatedView.bounds
-        animation.loopAnimation = true
-        animatedView.addSubview(animation)
-        animation.play()
+        addAnimation()
     }
     
     func bindViewModel() {
@@ -53,6 +48,15 @@ class PhotosViewController: UIViewController, BindableType {
             cell.configure(with: item)
             return cell
         }
+    }
+    
+    fileprivate func addAnimation() {
+        let animation = LOTAnimationView.init(name: "empty_status")
+        animation.autoresizingMask = [.flexibleWidth,.flexibleHeight]
+        animation.frame = animatedView.bounds
+        animation.loopAnimation = true
+        animatedView.addSubview(animation)
+        animation.play()
     }
     
 }
