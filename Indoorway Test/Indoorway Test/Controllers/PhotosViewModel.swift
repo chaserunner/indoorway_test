@@ -27,7 +27,7 @@ struct PhotosViewModel {
             .map { results in
                 let albums = results.categorise(){photo in photo.albumId}
                 return albums.map(){
-                    PhotoSection.init(model: "AlbumId: /($0)", items: $1)
+                    PhotoSection(model: "AlbumId: /($0)", items: $1)
                 }
         }
     }

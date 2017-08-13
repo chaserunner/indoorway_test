@@ -30,7 +30,7 @@ class PhotosViewController: UIViewController, BindableType {
     func bindViewModel() {
         viewModel.sectionedItems
             .bind(to: collectionView.rx.items(dataSource: dataSource))
-            .addDisposableTo(self.rx_disposeBag)
+            .disposed(by: self.rx.disposeBag)
         
         addItemButton.rx.action = viewModel.onAddPhoto()
         clearItemsButton.rx.action = viewModel.onClearPhotos()

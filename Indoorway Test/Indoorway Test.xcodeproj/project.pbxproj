@@ -27,6 +27,8 @@
 		413EF5E41F3F305000AE0DC4 /* PhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413EF5E31F3F305000AE0DC4 /* PhotosViewModel.swift */; };
 		413EF5E61F3F319B00AE0DC4 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413EF5E51F3F319B00AE0DC4 /* PhotosViewController.swift */; };
 		413EF5E91F3F440400AE0DC4 /* PhotoItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413EF5E81F3F440400AE0DC4 /* PhotoItemCollectionViewCell.swift */; };
+		418EC7451F4044EA009D3D0E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418EC7441F4044EA009D3D0E /* NetworkManager.swift */; };
+		418EC7471F404522009D3D0E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418EC7461F404522009D3D0E /* APIService.swift */; };
 		41DB3BC71F3F580900D734E5 /* Sequence+Categorize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DB3BC61F3F580900D734E5 /* Sequence+Categorize.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		413EF5E31F3F305000AE0DC4 /* PhotosViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosViewModel.swift; path = Controllers/PhotosViewModel.swift; sourceTree = "<group>"; };
 		413EF5E51F3F319B00AE0DC4 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosViewController.swift; path = Controllers/PhotosViewController.swift; sourceTree = "<group>"; };
 		413EF5E81F3F440400AE0DC4 /* PhotoItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoItemCollectionViewCell.swift; path = Cells/PhotoItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		418EC7441F4044EA009D3D0E /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = NetworkLayer/NetworkManager.swift; sourceTree = "<group>"; };
+		418EC7461F404522009D3D0E /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIService.swift; path = NetworkLayer/APIService.swift; sourceTree = "<group>"; };
 		41DB3BC61F3F580900D734E5 /* Sequence+Categorize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Sequence+Categorize.swift"; path = "Extensions/Sequence+Categorize.swift"; sourceTree = "<group>"; };
 		48892AD901E9F1E17190828C /* Pods_Indoorway_TestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Indoorway_TestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48FDD06498C4A3D8A749BACA /* Pods-Indoorway Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Indoorway Test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Indoorway Test/Pods-Indoorway Test.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				413EF5A81F3E14EB00AE0DC4 /* AppDelegate.swift */,
+				418EC7421F404451009D3D0E /* NetworkLayer */,
 				413EF5C81F3F15A100AE0DC4 /* Scenes */,
 				413EF5D51F3F180300AE0DC4 /* Services */,
 				413EF5DA1F3F2ED700AE0DC4 /* Extensions */,
@@ -193,6 +198,15 @@
 				413EF5E81F3F440400AE0DC4 /* PhotoItemCollectionViewCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		418EC7421F404451009D3D0E /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				418EC7441F4044EA009D3D0E /* NetworkManager.swift */,
+				418EC7461F404522009D3D0E /* APIService.swift */,
+			);
+			name = NetworkLayer;
 			sourceTree = "<group>";
 		};
 		50105BBB4FB1564537EF1504 /* Frameworks */ = {
@@ -419,10 +433,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				418EC7471F404522009D3D0E /* APIService.swift in Sources */,
 				413EF5DC1F3F2F0200AE0DC4 /* UINavigationController+Rx.swift in Sources */,
 				413EF5CC1F3F164600AE0DC4 /* SceneCoordinatorType.swift in Sources */,
 				413EF5D91F3F2E5E00AE0DC4 /* PhotoService.swift in Sources */,
 				413EF5A91F3E14EB00AE0DC4 /* AppDelegate.swift in Sources */,
+				418EC7451F4044EA009D3D0E /* NetworkManager.swift in Sources */,
 				413EF5D21F3F171F00AE0DC4 /* Scene+ViewController.swift in Sources */,
 				413EF5D01F3F16B300AE0DC4 /* SceneTransitionType.swift in Sources */,
 				413EF5D41F3F176600AE0DC4 /* SceneCoordinator.swift in Sources */,

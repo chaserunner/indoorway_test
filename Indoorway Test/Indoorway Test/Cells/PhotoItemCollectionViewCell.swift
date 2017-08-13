@@ -9,6 +9,7 @@
 import UIKit
 import Action
 import RxSwift
+import Kingfisher
 
 class PhotoItemCollectionViewCell: UICollectionViewCell {
     
@@ -23,15 +24,17 @@ class PhotoItemCollectionViewCell: UICollectionViewCell {
             .subscribe(onNext: { [weak self] title in
                 self?.title.text = title
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
-        item.rx.observe(Data.self, "cachedImage")
-            .subscribe(onNext: { [weak self] data in
-                guard let data = data else { return }
-                guard let image = UIImage.init(data: data) else { return }
-                self?.image.image = image
+        item.rx.observe(String.self, "url")
+            .subscribe(onNext: { [weak self] url in
+                guard let urlString = url else {return}
+                self?.image.kf.setImage(with: URL(string: urlString), completionHandler : {
+                    a,b,c,d in
+                    
+                })
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
     
     override func prepareForReuse() {

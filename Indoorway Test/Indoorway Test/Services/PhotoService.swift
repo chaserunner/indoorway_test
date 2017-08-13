@@ -29,28 +29,26 @@ struct PhotoService: PhotoServiceType {
     
     @discardableResult
     func addPhoto() -> Observable<PhotoItem> {
-        //        let result = withRealm("creating") { realm -> Observable<PhotoItem> in
-        //            let photo = Photo()
-        //            try realm.write {
-        //
-        //                realm.add(photo)
-        //            }
-        //            return .just(photo)
-        //        }
-        //        return result ?? .error(PhotoServiceError.addingFailed())
-        return .error(PhotoServiceError.addingFailed())
+        let i = withRealm("getting photos") { realm -> Int in
+            let realm = try Realm()
+            let count = realm.objects(PhotoItem.self).count
+            return count
+        }
+        guard let index = i else { return .error(PhotoServiceError.addingFailed()) }
+        let path = Path.photo(index: index + 1)
+        return APIService.getObject(from: path.path)
+        
     }
     
     @discardableResult
     func clearPhotos() -> Observable<Void> {
-        //        let result = withRealm("deleting") { realm-> Observable<Void> in
-        //            try realm.write {
-        //                realm.delete(photo)
-        //            }
-        //            return .empty()
-        //        }
-        //        return result ?? .error(PhotoServiceError.clearingFailed())
-        return .error(PhotoServiceError.clearingFailed())
+        let result = withRealm("deleting") { realm-> Observable<Void> in
+            try realm.write {
+                realm.delete(realm.objects(PhotoItem.self))
+            }
+            return .empty()
+        }
+        return result ?? .error(PhotoServiceError.clearingFailed())
     }
     
     @discardableResult

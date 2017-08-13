@@ -9,19 +9,33 @@
 import Foundation
 import RealmSwift
 import RxDataSources
+import ObjectMapper
+import RxSwift
 
-class PhotoItem: Object {
+class PhotoItem: Object, Mappable {
     
     dynamic var id: Int = 0
     dynamic var albumId: Int = 0
     dynamic var title: String = ""
     dynamic var url: String = ""
     dynamic var thumbnailUrl: String = ""
-    dynamic var cachedImage: Data? = nil
-
+    
     override class func primaryKey() -> String? {
         return "id"
     }
+    
+    required convenience init?(map: Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        id              <- map[MappingKey.id.rawValue]
+        albumId         <- map[MappingKey.albumId.rawValue]
+        title           <- map[MappingKey.title.rawValue]
+        url             <- map[MappingKey.url.rawValue]
+        thumbnailUrl    <- map[MappingKey.thumbnailUrl.rawValue]
+    }
+
 }
 
 extension PhotoItem: IdentifiableType {
