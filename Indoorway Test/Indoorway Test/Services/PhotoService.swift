@@ -53,7 +53,6 @@ struct PhotoService: PhotoServiceType {
     @discardableResult
     func photos() -> Observable<Results<PhotoItem>> {
         let result = withRealm("getting photos") { realm -> Observable<Results<PhotoItem>> in
-            let realm = try Realm()
             let photos = realm.objects(PhotoItem.self)
             return Observable.collection(from: photos)
         }
