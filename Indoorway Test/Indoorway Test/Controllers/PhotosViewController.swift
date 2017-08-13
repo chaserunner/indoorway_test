@@ -29,6 +29,7 @@ class PhotosViewController: UIViewController, BindableType {
         super.viewDidLoad()
         configureDataSource()
         let animation = LOTAnimationView.init(name: "empty_status")
+        animation.autoresizingMask = [.flexibleWidth,.flexibleHeight]
         animation.frame = animatedView.bounds
         animation.loopAnimation = true
         animatedView.addSubview(animation)
