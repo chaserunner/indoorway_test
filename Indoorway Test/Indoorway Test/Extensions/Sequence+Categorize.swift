@@ -9,10 +9,12 @@
 import Foundation
 
 private extension Dictionary {
+    
     subscript(key: Key, or or: Value) -> Value {
         get { return self[key] ?? or }
         set { self[key] = newValue }
     }
+    
 }
 
 public extension Sequence {

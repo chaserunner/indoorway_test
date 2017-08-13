@@ -30,7 +30,6 @@ struct PhotoService: PhotoServiceType {
     @discardableResult
     func addPhoto() -> Observable<PhotoItem> {
         let i = withRealm("getting photos") { realm -> Int in
-            let realm = try Realm()
             let count = realm.objects(PhotoItem.self).count
             return count
         }

@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let service = PhotoService()
         let sceneCoordinator = SceneCoordinator(window: window!)
-        
         let photosViewModel = PhotosViewModel(photoService: service, coordinator: sceneCoordinator)
         let firstScene = Scene.photos(photosViewModel)
         sceneCoordinator.transition(to: firstScene, type: .root)

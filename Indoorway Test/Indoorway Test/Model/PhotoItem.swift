@@ -29,17 +29,19 @@ class PhotoItem: Object, Mappable {
     }
     
     func mapping(map: Map) {
-        id              <- map[MappingKey.id.rawValue]
-        albumId         <- map[MappingKey.albumId.rawValue]
-        title           <- map[MappingKey.title.rawValue]
-        url             <- map[MappingKey.url.rawValue]
-        thumbnailUrl    <- map[MappingKey.thumbnailUrl.rawValue]
+        id              <- map["id"]
+        albumId         <- map["albumId"]
+        title           <- map["title"]
+        url             <- map["url"]
+        thumbnailUrl    <- map["thumbnailUrl"]
     }
 
 }
 
 extension PhotoItem: IdentifiableType {
+    
     var identity: Int {
         return self.isInvalidated ? 0 : id
     }
+    
 }

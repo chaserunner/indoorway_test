@@ -14,6 +14,7 @@ import Action
 typealias PhotoSection = AnimatableSectionModel<String, PhotoItem>
 
 struct PhotosViewModel {
+    
     let sceneCoordinator: SceneCoordinatorType
     let photoService: PhotoServiceType
     

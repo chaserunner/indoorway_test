@@ -11,10 +11,8 @@ import RxSwift
 import RealmSwift
 
 enum PhotoServiceError: Error {
-    
     case addingFailed()
     case clearingFailed()
-    
 }
 
 protocol PhotoServiceType {

@@ -15,6 +15,7 @@ target 'Indoorway Test' do
   pod 'RxAlamofire'
   pod 'Kingfisher'
   pod 'ObjectMapper'
+  pod 'lottie-ios'
   
   target 'Indoorway TestTests' do
     inherit! :search_paths

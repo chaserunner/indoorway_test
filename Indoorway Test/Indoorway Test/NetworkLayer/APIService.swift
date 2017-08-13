@@ -12,23 +12,14 @@ import RxSwift
 import RxRealm
 import Alamofire
 
-enum MappingKey : String {
-    
-    typealias RawValue = String
-    case id, albumId, title, url, thumbnailUrl
-    
-}
-
 enum Path {
     
     case photo(index: Int)
-    
     var path : String {
         switch self {
         case let .photo(index):
             return "photos/\(index)"
         }
-        
     }
     
 }
@@ -38,9 +29,6 @@ struct APIService {
     static private func requestObject<T>(at path: String, using method: HTTPMethod, with parameters: [String: Any] = [:], and realm: Realm? = nil) -> Observable<T> where T: Object, T: Mappable {
         return NetworkManager.sharedInstance.request(path: path, method: method, parameters: parameters)
             .flatMap { (response) -> Observable<T> in
-                print("PATH:\(path)")
-                print("PARAMETERS:\(parameters)")
-                print("RESPONSE:\(response?.description ?? "")")
                 if let error = response as? NSError {
                     return Observable<T>.error(error)
                 }
